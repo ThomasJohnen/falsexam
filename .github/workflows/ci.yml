@@ -1,0 +1,15 @@
+name : Examen Devop's 2023 CI
+
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  check_code: 
+    runs-on: ubuntu-latestµ
+    steps:
+      - uses : actions/checkout@v2
+      - uses : actions/setup-node@v2
+        with:
+          node-version: 16.14
+      - run : npm ci
+      - run : npm test
